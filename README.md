@@ -15,7 +15,7 @@ knojector_steam_auth:
 ```
 ----------
 
-At first, require the bundle via Composer and add it to your `config/bundles.php` file.
+Then require the bundle via Composer and add it to your `config/bundles.php` file.
 `composer require knojector/steam-authentication-bundle`
 
 ----------
