@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Knojector\SteamAuthenticationBundle\User;
+namespace Knojector\SteamAuthenticationBundle\User;
 
 /**
  * @see https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29

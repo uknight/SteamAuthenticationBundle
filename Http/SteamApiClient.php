@@ -2,7 +2,7 @@
 
 namespace Knojector\SteamAuthenticationBundle\Http;
 
-use App\Knojector\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
+use Knojector\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
 use GuzzleHttp\Client;
 
 /**

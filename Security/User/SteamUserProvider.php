@@ -2,7 +2,7 @@
 
 namespace Knojector\SteamAuthenticationBundle\Security\User;
 
-use App\Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
+use Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Knojector\SteamAuthenticationBundle\Factory\UserFactory;
 use Knojector\SteamAuthenticationBundle\Http\SteamApiClient;

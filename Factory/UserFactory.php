@@ -2,8 +2,8 @@
 
 namespace Knojector\SteamAuthenticationBundle\Factory;
 
-use App\Knojector\SteamAuthenticationBundle\Exception\InvalidUserClassException;
-use App\Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
+use Knojector\SteamAuthenticationBundle\Exception\InvalidUserClassException;
+use Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
 
 /**
  * @author Knojector <dev@404-labs.xyz>

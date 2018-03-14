@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Knojector\SteamAuthenticationBundle\User;
+namespace Knojector\SteamAuthenticationBundle\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;

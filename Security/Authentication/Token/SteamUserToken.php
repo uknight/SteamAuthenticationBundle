@@ -2,7 +2,7 @@
 
 namespace Knojector\SteamAuthenticationBundle\Security\Authentication\Token;
 
-use App\Knojector\SteamAuthenticationBundle\User\AbstractSteamUser;
+use Knojector\SteamAuthenticationBundle\User\AbstractSteamUser;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
