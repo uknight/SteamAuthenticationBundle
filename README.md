@@ -4,10 +4,6 @@ A Symfony4 Bundle that provides authentication via Steam for your application.
 For now there is no Flex recipe so you have to create the config by hand.
 
 ## Installation & Configuration
-At first, require the bundle via Composer and add it to your `config/bundles.php` file.
-`composer require knojector/steam-authentication-bundle`
-
-----------
 
 Create the file `knojector_steam_authentication` in the `config/packages` directory and add the following content to it.
 ```yml
@@ -17,6 +13,11 @@ knojector_steam_auth:
     login_redirect: RouteName # The route the user is redirected to if the login was successfull
     user_class: App\Entity\User # Classname of your User Entity
 ```
+----------
+
+At first, require the bundle via Composer and add it to your `config/bundles.php` file.
+`composer require knojector/steam-authentication-bundle`
+
 ----------
 Make your User Entity extend from the `Knojector\SteamAuthenticationBundle\User\AbstractSteamUser` class
 ```php
