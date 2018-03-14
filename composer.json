@@ -10,7 +10,7 @@
     }
   ],
   "autoload": {
-    "psr-4": { "Knojector\\KnojectorSteamAuthenticationBundle\\": "" }
+    "psr-4": { "Knojector\\SteamAuthenticationBundle\\": "" }
   },
   "require": {
     "php": ">=7.1.3",
