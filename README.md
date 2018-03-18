@@ -1,7 +1,6 @@
 
 # SteamAuthenticationBundle
 A Symfony4 Bundle that provides authentication via Steam for your application.
-For now there is no Flex recipe so you have to create the config by hand.
 
 ## Installation & Configuration
 
