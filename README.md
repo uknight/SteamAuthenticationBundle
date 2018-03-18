@@ -5,21 +5,20 @@ For now there is no Flex recipe so you have to create the config by hand.
 
 ## Installation & Configuration
 
-Create the file `knojector_steam_authentication` in the `config/packages` directory and add the following content to it.
-```yml
-knojector_steam_auth:
-    api_key: ReplaceWithYouKey # https://steamcommunity.com/dev/apikey
-    login_route: RouteName # The route the user is redirected to after Steam Login
-    login_redirect: RouteName # The route the user is redirected to if the login was successfull
-    user_class: App\Entity\User # Classname of your User Entity
-```
-----------
-
-Then require the bundle via Composer and add it to your `config/bundles.php` file.
+Simpley require the bundle via Composer and add. Use the given flex recipe during the install process.
 `composer require knojector/steam-authentication-bundle`
 
 ----------
-Make your User Entity extend from the `Knojector\SteamAuthenticationBundle\User\AbstractSteamUser` class
+In your `.env`  file a new entry for your Steam API key was generated. You can obtain your Steam API key here: https://steamcommunity.com/dev/apikey
+
+**login_route** The route the user is redirected to after Steam Login
+
+**login_redirect** The route the user is redirected to if the login was successfull
+
+**user_class** Classname of your User Entity
+
+----------
+Make sure your User Entity extends from the `Knojector\SteamAuthenticationBundle\User\AbstractSteamUser` class
 ```php
 <?php
 
