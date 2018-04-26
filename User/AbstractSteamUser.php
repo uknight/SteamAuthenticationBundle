@@ -74,23 +74,23 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     protected $personaState;
 
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Column(type="bigint", nullable=true)
      */
     protected $primaryClanId;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      *
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $joinDate;
 
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $countryCode;
 
@@ -248,25 +248,25 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return int|null
      */
-    public function getPrimaryClanId(): ? int
+    public function getPrimaryClanId(): ?int
     {
         return $this->primaryClanId;
     }
 
     /**
-     * {@inheritdoc}
+     * @param int|null $primaryClanId
      */
-    public function setPrimaryClanId(int $clanId)
+    public function setPrimaryClanId(?int $primaryClanId): void
     {
-        $this->primaryClanId = $clanId;
+        $this->primaryClanId = $primaryClanId;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getJoinDate(): \DateTime
+    public function getJoinDate(): ?\DateTime
     {
         return $this->joinDate;
     }
@@ -274,17 +274,21 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function setJoinDate(int $joinDate)
+    public function setJoinDate(?int $joinDate): void
     {
-        $joinDateDate = new \DateTime();
-        $joinDateDate->setTimestamp($joinDate);
-        $this->joinDate = $joinDateDate;
+        if (null !== $joinDate) {
+            $joinDateDate = new \DateTime();
+            $joinDateDate->setTimestamp($joinDate);
+            $joinDate = $joinDateDate;
+        }
+
+        $this->joinDate = $joinDate;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getCountryCode(): string
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -292,7 +296,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function setCountryCode(string $countryCode)
+    public function setCountryCode(?string $countryCode): void
     {
         $this->countryCode = $countryCode;
     }
@@ -350,7 +354,11 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
         $this->setProfileUrl($userData['profileurl']);
         $this->setAvatar($userData['avatarfull']);
         $this->setPersonaState($userData['personastate']);
-        $this->setPrimaryClanId($userData['primaryclanid']);
-        $this->setCountryCode($userData['loccountrycode']);
+        $this->setPrimaryClanId(
+            isset($userData['primaryclanid']) ? $userData['primaryclanid'] : null
+        );
+        $this->setCountryCode(
+            isset($userData['loccountrycode']) ? $userData['loccountrycode'] : null
+        );
     }
 }

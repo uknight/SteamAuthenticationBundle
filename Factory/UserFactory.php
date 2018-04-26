@@ -46,9 +46,15 @@ class UserFactory
         $user->setProfileUrl($userData['profileurl']);
         $user->setAvatar($userData['avatarfull']);
         $user->setPersonaState($userData['personastate']);
-        $user->setPrimaryClanId($userData['primaryclanid']);
-        $user->setJoinDate($userData['timecreated']);
-        $user->setCountryCode($userData['loccountrycode']);
+        $user->setPrimaryClanId(
+            isset($userData['primaryclanid']) ? $userData['primaryclanid'] : null
+        );
+        $user->setJoinDate(
+            isset($userData['timecreated']) ? $userData['timecreated'] : null
+        );
+        $user->setCountryCode(
+            isset($userData['loccountrycode']) ? $userData['loccountrycode'] : null
+        );
 
         return $user;
     }

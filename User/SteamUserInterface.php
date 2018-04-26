@@ -102,7 +102,7 @@ interface SteamUserInterface
     /**
      * @return int|null
      */
-    public function getPrimaryClanId():? int;
+    public function getPrimaryClanId(): ?int;
 
     /**
      * @param int $clanId
@@ -110,24 +110,24 @@ interface SteamUserInterface
     public function setPrimaryClanId(int $clanId);
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getJoinDate(): \DateTime;
+    public function getJoinDate(): ?\DateTime;
 
     /**
-     * @param int $joinDate
+     * @param int|null $joinDate
      */
-    public function setJoinDate(int $joinDate);
+    public function setJoinDate(?int $joinDate);
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCountryCode(): string;
+    public function getCountryCode(): ?string;
 
     /**
-     * @param string $countryCode
+     * @param string|null $countryCode
      */
-    public function setCountryCode(string $countryCode);
+    public function setCountryCode(?string $countryCode);
 
     /**
      * @param array $userData
