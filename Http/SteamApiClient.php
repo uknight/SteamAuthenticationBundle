@@ -10,7 +10,7 @@ use GuzzleHttp\Client;
  */
 class SteamApiClient
 {
-    const STEAM_API = 'http://api.steampowered.com';
+    const STEAM_API = 'https://api.steampowered.com';
 
     /**
      * @var string

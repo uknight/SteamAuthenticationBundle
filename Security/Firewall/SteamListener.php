@@ -75,7 +75,7 @@ class SteamListener implements ListenerInterface
             return;
         }
 
-        $claimedId = str_replace('http://steamcommunity.com/openid/id/', '', $request->query->get('openid_claimed_id'));
+        $claimedId = str_replace('https://steamcommunity.com/openid/id/', '', $request->query->get('openid_claimed_id'));
 
         $token = new SteamUserToken();
         $token->setUsername($claimedId);
