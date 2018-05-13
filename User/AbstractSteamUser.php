@@ -4,6 +4,7 @@ namespace Knojector\SteamAuthenticationBundle\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Role\Role;
 
 /**
  * @author Knojector <dev@404-labs.xyz>
@@ -339,6 +340,18 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     public function eraseCredentials()
     {
         return;
+    }
+    
+    /**
+     * @return array
+     */
+    public function getRoles(): array {
+        $roles = [];
+        foreach ($this->roles as $role) {
+            $roles[] = new Role($role);
+        }
+
+        return $roles;
     }
 
     /**
