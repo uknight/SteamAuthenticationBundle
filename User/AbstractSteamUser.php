@@ -305,14 +305,6 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getPassword()
     {
         return null;
