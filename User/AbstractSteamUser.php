@@ -355,7 +355,9 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
         $this->setProfileState($userData['profilestate']);
         $this->setProfileName($userData['personaname']);
         $this->setLastLogOff($userData['lastlogoff']);
-        $this->setCommentPermission($userData['commentpermission']);
+        $this->setCommentPermission(
+            isset($userData['commentpermission']) ? $userData['commentpermission'] : 0
+        );
         $this->setProfileUrl($userData['profileurl']);
         $this->setAvatar($userData['avatarfull']);
         $this->setPersonaState($userData['personastate']);
