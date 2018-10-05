@@ -6,7 +6,7 @@ use Knojector\SteamAuthenticationBundle\Exception\InvalidUserClassException;
 use Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 class UserFactory
 {

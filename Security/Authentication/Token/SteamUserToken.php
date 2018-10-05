@@ -6,7 +6,7 @@ use Knojector\SteamAuthenticationBundle\User\AbstractSteamUser;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 class SteamUserToken implements TokenInterface
 {
