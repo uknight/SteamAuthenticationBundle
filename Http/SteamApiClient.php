@@ -6,7 +6,7 @@ use Knojector\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
 use GuzzleHttp\Client;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 class SteamApiClient
 {

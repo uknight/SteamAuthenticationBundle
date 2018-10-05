@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 class SteamFactory implements SecurityFactoryInterface
 {

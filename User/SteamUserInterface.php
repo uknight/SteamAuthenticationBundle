@@ -5,7 +5,7 @@ namespace Knojector\SteamAuthenticationBundle\User;
 /**
  * @see https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29
  *
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 interface SteamUserInterface
 {

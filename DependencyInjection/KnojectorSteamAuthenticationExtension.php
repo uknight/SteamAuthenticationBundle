@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 class KnojectorSteamAuthenticationExtension extends Extension
 {

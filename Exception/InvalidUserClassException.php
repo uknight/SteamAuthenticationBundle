@@ -3,7 +3,7 @@
 namespace Knojector\SteamAuthenticationBundle\Exception;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  */
 class InvalidUserClassException extends \Exception
 {
