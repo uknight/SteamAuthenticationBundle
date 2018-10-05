@@ -28,7 +28,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Role\Role;
 
 /**
- * @author Knojector <dev@404-labs.xyz>
+ * @author Knojector <dev@knojector.xyz>
  *
  * @ORM\Entity()
  */
@@ -97,5 +97,6 @@ security:
 
 To display the "Login via Steam" button simply include this snippet in your template
 ```twig
-{% include '@KnojectorSteamAuthentication/login.html.twig' %}
+{% include '@KnojectorSteamAuthentication/login.html.twig' with: { 'btn': 1 } %}
 ```
+You can choose between two images (1 or 2) that will be display as button. Or simply enter your own text.
