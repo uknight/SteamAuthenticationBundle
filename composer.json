@@ -1,5 +1,5 @@
 {
-  "name": "knojector/steam-authentication-bundle",
+  "name": "uknight/steam-authentication-bundle",
   "license": "MIT",
   "type": "symfony-bundle",
   "description": "Symfony Bundle to integrate Steam authentication",
