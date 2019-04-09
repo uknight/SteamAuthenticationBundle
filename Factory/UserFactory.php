@@ -7,6 +7,7 @@ use Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
 
 /**
  * @author Knojector <dev@knojector.xyz>
+ * @patch U-Knight Team
  */
 class UserFactory
 {
@@ -39,12 +40,14 @@ class UserFactory
 
         $user->setSteamId($userData['steamid']);
         $user->setCommunityVisibilityState($userData['communityvisibilitystate']);
-        $user->setProfileState($userData['profilestate']);
+        $user->setUsername($userData['personaname'] . '_' . $userData['steamid']);
+        $user->setEmail($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
+        $user->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
+        $user->setSlug($userData['steamid']);
+//        $user->setProfileState($userData['profilestate']);
         $user->setProfileName($userData['personaname']);
         $user->setLastLogOff($userData['lastlogoff']);
-        $user->setCommentPermission(
-            isset($userData['commentpermission']) ? $userData['commentpermission'] : 0
-        );
+//        $user->setCommentPermission($userData['commentpermission']);
         $user->setProfileUrl($userData['profileurl']);
         $user->setAvatar($userData['avatarfull']);
         $user->setPersonaState($userData['personastate']);
