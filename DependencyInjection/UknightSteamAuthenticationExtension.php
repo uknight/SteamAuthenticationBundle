@@ -26,9 +26,10 @@ class UknightSteamAuthenticationExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('Uknight.steam_authentication.api_key', $config['api_key']);
-        $container->setParameter('Uknight.steam_authentication.login_route', $config['login_route']);
-        $container->setParameter('Uknight.steam_authentication.login_redirect', $config['login_redirect']);
-        $container->setParameter('Uknight.steam_authentication.user_class', $config['user_class']);
+        $container->setParameter('uknight.steam_authentication.api_key', $config['api_key']);
+        $container->setParameter('uknight.steam_authentication.login_route', $config['login_route']);
+        $container->setParameter('uknight.steam_authentication.login_redirect', $config['login_redirect']);
+        $container->setParameter('uknight.steam_authentication.user_class', $config['user_class']);
+        $container->setParameter('uknight.steam_authentication.use_fos', $config['use_fos']);
     }
 }
