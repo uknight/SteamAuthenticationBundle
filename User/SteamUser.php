@@ -143,7 +143,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function setProfileState(int $state)
+    public function setProfileState(?int $state)
     {
         $this->profileState = $state;
     }
