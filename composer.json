@@ -5,12 +5,12 @@
   "description": "Symfony Bundle to integrate Steam with FOSUserBundle authentication, forked from KnojectorSteamAuthentication. Credits to them.",
   "authors": [
     {
-      "name": "UKnight",
+      "name": "Uknight",
       "email": "flash@u-knight.de"
     }
   ],
   "autoload": {
-    "psr-4": { "UKnight\\SteamAuthenticationBundle\\": "" }
+    "psr-4": { "Uknight\\SteamAuthenticationBundle\\": "" }
   },
   "require": {
     "php": ">=7.1.3",

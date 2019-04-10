@@ -1,11 +1,11 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\Security\User;
+namespace Uknight\SteamAuthenticationBundle\Security\User;
 
-use UKnight\SteamAuthenticationBundle\User\SteamUserInterface;
+use Uknight\SteamAuthenticationBundle\User\SteamUserInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use UKnight\SteamAuthenticationBundle\Factory\UserFactory;
-use UKnight\SteamAuthenticationBundle\Http\SteamApiClient;
+use Uknight\SteamAuthenticationBundle\Factory\UserFactory;
+use Uknight\SteamAuthenticationBundle\Http\SteamApiClient;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;

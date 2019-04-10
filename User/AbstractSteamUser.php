@@ -1,6 +1,6 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\User;
+namespace Uknight\SteamAuthenticationBundle\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;

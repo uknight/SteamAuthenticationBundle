@@ -1,6 +1,6 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\DependencyInjection;
+namespace Uknight\SteamAuthenticationBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

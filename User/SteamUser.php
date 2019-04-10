@@ -6,7 +6,7 @@
  * Time: 23:08
  */
 
-namespace UKnight\SteamAuthenticationBundle\User;
+namespace Uknight\SteamAuthenticationBundle\User;
 
 /**
  * Trait SteamUser

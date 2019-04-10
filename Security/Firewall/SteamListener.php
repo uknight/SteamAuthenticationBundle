@@ -1,8 +1,8 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\Security\Firewall;
+namespace Uknight\SteamAuthenticationBundle\Security\Firewall;
 
-use UKnight\SteamAuthenticationBundle\Security\Authentication\Token\SteamUserToken;
+use Uknight\SteamAuthenticationBundle\Security\Authentication\Token\SteamUserToken;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

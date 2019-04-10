@@ -2,6 +2,7 @@
 # SteamAuthenticationBundle
 A Symfony4 Bundle that provides authentication via Steam and FOSUser for your application.
 It is a forked KnojectorSteamAuthentication bundle with minor additions to the compatibility to FOSUserBundle
+If you don't use FOSUserBundle on your project, you would better use original KnojectorSteamAuthentication bundle.
 
 ## Installation & Configuration
 
@@ -33,13 +34,13 @@ u_knight_steam_authentication:
 ```
 
 ----------
-If you don't use FOSUserBundle, Make sure your User Entity extends from the `UKnight\SteamAuthenticationBundle\User\AbstractSteamUser` class
+If you don't use FOSUserBundle, Make sure your User Entity extends from the `Uknight\SteamAuthenticationBundle\User\AbstractSteamUser` class
 ```php
 <?php
 
 namespace App\Entity;
 
-use UKnight\SteamAuthenticationBundle\User\AbstractSteamUser;
+use Uknight\SteamAuthenticationBundle\User\AbstractSteamUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Role\Role;
 
@@ -92,8 +93,8 @@ Otherwise, If you use FOSUserBundle, use SteamUser trait inside your User class:
 
 namespace App\Entity;
 
-use UKnight\SteamAuthenticationBundle\User\SteamUserInterface;
-use UKnight\SteamAuthenticationBundle\User\SteamUser;
+use Uknight\SteamAuthenticationBundle\User\SteamUserInterface;
+use Uknight\SteamAuthenticationBundle\User\SteamUser;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Client\UserRepository")
@@ -122,7 +123,7 @@ Finally you just have to configure your firewall. A working example might look l
 security:
     providers:
         steam_user_provider:
-            id: UKnight\SteamAuthenticationBundle\Security\User\SteamUserProvider
+            id: Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -146,7 +147,7 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username_email
         steam_user_provider:
-            id: UKnight\SteamAuthenticationBundle\Security\User\SteamUserProvider
+            id: Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -171,13 +172,13 @@ security:
 
 To display the "Login via Steam" button simply include this snippet in your template
 ```twig
-{% include '@UKnightSteamAuthentication/login.html.twig' with { 'btn': 1 } %}
+{% include '@UknightSteamAuthentication/login.html.twig' with { 'btn': 1 } %}
 ```
 You can choose between two images (1 or 2) that will be display as button. Or simply enter your own text/html.
 ```twig
-{% include '@UKnightSteamAuthentication/login.html.twig' with { 'btn': '<i class="fa fa-steam"></i> Steam' } %}
+{% include '@UknightSteamAuthentication/login.html.twig' with { 'btn': '<i class="fa fa-steam"></i> Steam' } %}
 ```
 It is possible to optionally to make the button transparent:
 ```twig
-{% include '@UKnightSteamAuthentication/login.html.twig' with { 'btn': 2, hidden: 1 } %}
+{% include '@UknightSteamAuthentication/login.html.twig' with { 'btn': 2, hidden: 1 } %}
 ```

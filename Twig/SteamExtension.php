@@ -1,6 +1,6 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\Twig;
+namespace Uknight\SteamAuthenticationBundle\Twig;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;

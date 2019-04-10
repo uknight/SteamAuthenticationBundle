@@ -1,8 +1,8 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\Http;
+namespace Uknight\SteamAuthenticationBundle\Http;
 
-use UKnight\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
+use Uknight\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
 use GuzzleHttp\Client;
 
 /**

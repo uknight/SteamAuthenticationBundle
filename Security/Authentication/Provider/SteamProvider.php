@@ -1,8 +1,8 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\Security\Authentication\Provider;
+namespace Uknight\SteamAuthenticationBundle\Security\Authentication\Provider;
 
-use UKnight\SteamAuthenticationBundle\Security\Authentication\Token\SteamUserToken;
+use Uknight\SteamAuthenticationBundle\Security\Authentication\Token\SteamUserToken;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;

@@ -9,24 +9,24 @@ services:
     uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider: '@uknight.steam_authentication.security.user.steam_user_provider'
 
     uknight.steam_authentication.factory.user_factory:
-        class: UKnight\SteamAuthenticationBundle\Factory\UserFactory
+        class: Uknight\SteamAuthenticationBundle\Factory\UserFactory
         arguments:
             - '%uknight.steam_authentication.user_class%'
             - '%uknight.steam_authentication.fos%'
 
     uknight.steam_authentication.http.steam_api_client:
-        class: UKnight\SteamAuthenticationBundle\Http\SteamApiClient
+        class: Uknight\SteamAuthenticationBundle\Http\SteamApiClient
         arguments:
             - '%uknight.steam_authentication.api_key%'
         public: true
 
     uknight.steam_authentication.security.authentication.provider.steam_provider:
-        class: UKnight\SteamAuthenticationBundle\Security\Authentication\Provider\SteamProvider
+        class: Uknight\SteamAuthenticationBundle\Security\Authentication\Provider\SteamProvider
         arguments:
             - ''
 
     uknight.steam_authentication.security.firewall.steam_listener:
-        class: UKnight\SteamAuthenticationBundle\Security\Firewall\SteamListener
+        class: Uknight\SteamAuthenticationBundle\Security\Firewall\SteamListener
         arguments:
             - '@security.authentication.manager'
             - '@router'
@@ -35,7 +35,7 @@ services:
             - '@security.token_storage'
 
     uknight.steam_authentication.security.user.steam_user_provider:
-        class: UKnight\SteamAuthenticationBundle\Security\User\SteamUserProvider
+        class: Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@uknight.steam_authentication.http.steam_api_client'
@@ -43,7 +43,7 @@ services:
             - '@uknight.steam_authentication.factory.user_factory'
 
     uknight.steam_authentication.twig.steam_extension:
-        class: UKnight\SteamAuthenticationBundle\Twig\SteamExtension
+        class: Uknight\SteamAuthenticationBundle\Twig\SteamExtension
         arguments:
             - '@router'
             - '%uknight.steam_authentication.login_route%'

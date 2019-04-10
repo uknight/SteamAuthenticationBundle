@@ -1,9 +1,9 @@
 <?php
 
-namespace UKnight\SteamAuthenticationBundle\Factory;
+namespace Uknight\SteamAuthenticationBundle\Factory;
 
-use UKnight\SteamAuthenticationBundle\Exception\InvalidUserClassException;
-use UKnight\SteamAuthenticationBundle\User\SteamUserInterface;
+use Uknight\SteamAuthenticationBundle\Exception\InvalidUserClassException;
+use Uknight\SteamAuthenticationBundle\User\SteamUserInterface;
 
 /**
  * @author Knojector <dev@knojector.xyz>
