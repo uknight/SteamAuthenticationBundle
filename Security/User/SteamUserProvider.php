@@ -57,12 +57,14 @@ class SteamUserProvider implements UserProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function loadUserByUsername($username)
+    public function loadUserByUsername($username, $fos = true)
     {
+        //ToDo: handle $fos parameter properly
+
         $user = $this->entityManager->getRepository($this->userClass)->findOneBy(['steamId' => $username]);
         $userData = $this->api->loadProfile($username);
         if (null === $user) {
-            $user = $this->userFactory->getFromSteamApiResponse($userData);
+            $user = $this->userFactory->getFromSteamApiResponse($userData, $fos);
 
             $this->entityManager->persist($user);
         } else {

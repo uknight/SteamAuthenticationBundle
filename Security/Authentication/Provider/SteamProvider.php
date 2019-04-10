@@ -18,6 +18,7 @@ class SteamProvider implements AuthenticationProviderInterface
     private $userProvider;
 
     /**
+     * SteamProvider constructor.
      * @param UserProviderInterface $userProvider
      */
     public function __construct(UserProviderInterface $userProvider)

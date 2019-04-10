@@ -354,9 +354,9 @@ trait SteamUser
         $this->setProfileName($userData['personaname']);
 
         // we use it when we have FOSUserBundle
-        if($this->getUsername() == $this->getProfileName() . '_' . $this->getSteamId())
+        if($this->getUsername() == $this->getSteamId())
         {
-            $this->setUsername($userData['personaname'] . '_' . $userData['steamid']);
+            $this->setUsername($userData['steamid']);
             $this->setEmail($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
             $this->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
         }
