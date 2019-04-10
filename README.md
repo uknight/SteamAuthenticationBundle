@@ -25,7 +25,7 @@ Here is an example of the file:
 
 ```yaml
 # https://github.com/uknight/SteamAuthenticationBundle for configuration documentation
-u_knight_steam_authentication:
+uknight_steam_authentication:
     api_key: "%env(STEAM_API_KEY)%"
     login_route: 'homepage'
     login_redirect: 'homepage'

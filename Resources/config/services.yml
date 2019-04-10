@@ -4,9 +4,9 @@ services:
         autoconfigure: true
         public: false
 
-    uknight\SteamAuthenticationBundle\Security\Authentication\Provider\SteamProvider: '@uknight.steam_authentication.security.authentication.provider.steam_provider'
-    uknight\SteamAuthenticationBundle\Security\Firewall\SteamListener: '@uknight.steam_authentication.security.firewall.steam_listener'
-    uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider: '@uknight.steam_authentication.security.user.steam_user_provider'
+    Uknight\SteamAuthenticationBundle\Security\Authentication\Provider\SteamProvider: '@uknight.steam_authentication.security.authentication.provider.steam_provider'
+    Uknight\SteamAuthenticationBundle\Security\Firewall\SteamListener: '@uknight.steam_authentication.security.firewall.steam_listener'
+    Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider: '@uknight.steam_authentication.security.user.steam_user_provider'
 
     uknight.steam_authentication.factory.user_factory:
         class: Uknight\SteamAuthenticationBundle\Factory\UserFactory
