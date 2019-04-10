@@ -48,16 +48,19 @@ class UserFactory
             $user->setEmail($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
             $user->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
             $user->setSlug($userData['steamid']);
+            $user->setCreatedAt(new \DateTime("now"));
+            $user->addRole('ROLE_USER');
+            $user->setEnabled(true);
         }
 
-        $user->setProfileState(
-            isset($userData['profilestate']) ? $userData['profilestate'] : null
-        );
+//        $user->setProfileState(
+//            isset($userData['profilestate']) ? $userData['profilestate'] : null
+//        );
         $user->setProfileName($userData['personaname']);
         $user->setLastLogOff($userData['lastlogoff']);
-        $user->setCommentPermission(
-            isset($userData['commentpermission']) ? $userData['commentpermission'] : null
-        );
+//        $user->setCommentPermission(
+//            isset($userData['commentpermission']) ? $userData['commentpermission'] : null
+//        );
         $user->setProfileUrl($userData['profileurl']);
         $user->setAvatar($userData['avatarfull']);
         $user->setPersonaState($userData['personastate']);
