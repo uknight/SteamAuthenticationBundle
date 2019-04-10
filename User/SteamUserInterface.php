@@ -30,14 +30,14 @@ interface SteamUserInterface
     public function setCommunityVisibilityState(int $state);
 
     /**
-     * @return int
+     * @return int | null
      */
-    public function getProfileState():int;
+    public function getProfileState(): ?int;
 
     /**
-     * @param int $state
+     * @param int $state | null
      */
-    public function setProfileState(int $state);
+    public function setProfileState(? int $state);
 
     /**
      * @return string

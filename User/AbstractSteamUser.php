@@ -139,7 +139,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function getProfileState(): int
+    public function getProfileState(): ?int
     {
         return $this->profileState;
     }
@@ -147,7 +147,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function setProfileState(int $state)
+    public function setProfileState(?int $state)
     {
         $this->profileState = $state;
     }
