@@ -35,7 +35,7 @@ class SteamProvider implements AuthenticationProviderInterface
 
         $authenticatedToken = new SteamUserToken();
         $authenticatedToken->setUser($user);
-        $authenticatedToken->setUsername($user->getUsername());
+        $authenticatedToken->setUsername($user->getSteamId());
         $authenticatedToken->setAuthenticated(true);
 
         return $authenticatedToken;
