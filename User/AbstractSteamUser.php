@@ -179,7 +179,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function setLastLogOff(int $lastLogOff)
+    public function setLastLogOff(?int $lastLogOff)
     {
         $lastLogOffDate = new \DateTime();
         $lastLogOffDate->setTimestamp($lastLogOff);
@@ -189,7 +189,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function getCommentPermission(): int
+    public function getCommentPermission(): ?int
     {
         return $this->commentPermission;
     }
@@ -197,7 +197,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     /**
      * {@inheritdoc}
      */
-    public function setCommentPermission(int $permission)
+    public function setCommentPermission(?int $permission)
     {
         $this->commentPermission = $permission;
     }

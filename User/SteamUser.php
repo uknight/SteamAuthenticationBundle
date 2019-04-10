@@ -135,7 +135,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function getProfileState(): int
+    public function getProfileState(): ?int
     {
         return $this->profileState;
     }
@@ -175,7 +175,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function setLastLogOff(int $lastLogOff)
+    public function setLastLogOff(?int $lastLogOff)
     {
         $lastLogOffDate = new \DateTime();
         $lastLogOffDate->setTimestamp($lastLogOff);
