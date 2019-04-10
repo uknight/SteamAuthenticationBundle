@@ -12,7 +12,7 @@ services:
         class: Uknight\SteamAuthenticationBundle\Factory\UserFactory
         arguments:
             - '%uknight.steam_authentication.user_class%'
-            - '%uknight.steam_authentication.fos%'
+            - '%uknight.steam_authentication.use_fos%'
 
     uknight.steam_authentication.http.steam_api_client:
         class: Uknight\SteamAuthenticationBundle\Http\SteamApiClient
