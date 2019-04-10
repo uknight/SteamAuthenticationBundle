@@ -18,7 +18,19 @@ In your `.env`  file a new entry for your Steam API key was generated. You can o
 
 **user_class** Classname of your User Entity
 
-**fos** Boolean variable where we indicate do we use FOSUserBundle or not.
+**use_fos** Boolean variable where we indicate do we use FOSUserBundle or not.
+
+Here is an example of the file:
+
+```yaml
+# https://github.com/uknight/SteamAuthenticationBundle for configuration documentation
+u_knight_steam_authentication:
+    api_key: "%env(STEAM_API_KEY)%"
+    login_route: 'homepage'
+    login_redirect: 'homepage'
+    user_class: 'App\Entity\Client\User'
+    use_fos: true
+```
 
 ----------
 If you don't use FOSUserBundle, Make sure your User Entity extends from the `UKnight\SteamAuthenticationBundle\User\AbstractSteamUser` class
@@ -76,6 +88,10 @@ class User extends AbstractSteamUser
 Otherwise, If you use FOSUserBundle, use SteamUser trait inside your User class:
 
 ```php
+<?php
+
+namespace App\Entity;
+
 use UKnight\SteamAuthenticationBundle\User\SteamUserInterface;
 use UKnight\SteamAuthenticationBundle\User\SteamUser;
 
@@ -159,7 +175,7 @@ To display the "Login via Steam" button simply include this snippet in your temp
 ```
 You can choose between two images (1 or 2) that will be display as button. Or simply enter your own text/html.
 ```twig
-{% include '@UKnightSteamAuthentication/login.html.twig' with { 'btn': '<i class="fa fa-stean"></i> Steam' } %}
+{% include '@UKnightSteamAuthentication/login.html.twig' with { 'btn': '<i class="fa fa-steam"></i> Steam' } %}
 ```
 It is possible to optionally to make the button transparent:
 ```twig
