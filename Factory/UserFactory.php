@@ -57,7 +57,9 @@ class UserFactory
             isset($userData['profilestate']) ? $userData['profilestate'] : null
         );
         $user->setProfileName($userData['personaname']);
-        $user->setLastLogOff($userData['lastlogoff']);
+        $user->setLastLogOff(
+            isset($userData['lastlogoff']) ? $userData['lastlogoff'] : null
+        );
         $user->setCommentPermission(
             isset($userData['commentpermission']) ? $userData['commentpermission'] : null
         );

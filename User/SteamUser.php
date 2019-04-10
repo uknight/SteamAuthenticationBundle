@@ -361,7 +361,9 @@ trait SteamUser
             $this->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
         }
 
-        $this->setLastLogOff($userData['lastlogoff']);
+        $this->setLastLogOff(
+            isset($userData['lastlogoff']) ? $userData['lastlogoff'] : null
+        );
         $this->setCommentPermission(isset($userData['commentpermission']) ? $userData['commentpermission'] : null);
         $this->setProfileUrl($userData['profileurl']);
         $this->setAvatar($userData['avatarfull']);
