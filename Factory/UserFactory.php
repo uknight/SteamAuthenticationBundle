@@ -53,14 +53,14 @@ class UserFactory
             $user->setEnabled(true);
         }
 
-//        $user->setProfileState(
-//            isset($userData['profilestate']) ? $userData['profilestate'] : null
-//        );
+        $user->setProfileState(
+            isset($userData['profilestate']) ? $userData['profilestate'] : null
+        );
         $user->setProfileName($userData['personaname']);
         $user->setLastLogOff($userData['lastlogoff']);
-//        $user->setCommentPermission(
-//            isset($userData['commentpermission']) ? $userData['commentpermission'] : null
-//        );
+        $user->setCommentPermission(
+            isset($userData['commentpermission']) ? $userData['commentpermission'] : null
+        );
         $user->setProfileUrl($userData['profileurl']);
         $user->setAvatar($userData['avatarfull']);
         $user->setPersonaState($userData['personastate']);

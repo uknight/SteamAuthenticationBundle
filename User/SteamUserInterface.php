@@ -32,7 +32,7 @@ interface SteamUserInterface
     /**
      * @return int
      */
-    public function getProfileState(): int;
+    public function getProfileState():int;
 
     /**
      * @param int $state
@@ -55,19 +55,19 @@ interface SteamUserInterface
     public function getLastLogOff(): \DateTime;
 
     /**
-     * @param int $lastLogOff
+     * @param int $lastLogOff | null
      */
-    public function setLastLogOff(int $lastLogOff);
+    public function setLastLogOff(?int $lastLogOff);
 
     /**
      * @return int
      */
-    public function getCommentPermission(): int;
+    public function getCommentPermission(): ?int;
 
     /**
-     * @param int $permission
+     * @param int $permission | null
      */
-    public function setCommentPermission(int $permission);
+    public function setCommentPermission(?int $permission);
 
     /**
      * @return string
@@ -90,9 +90,9 @@ interface SteamUserInterface
     public function setAvatar(string $avatar);
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPersonaState(): int;
+    public function getPersonaState(): ?int;
 
     /**
      * @param int|null $state
