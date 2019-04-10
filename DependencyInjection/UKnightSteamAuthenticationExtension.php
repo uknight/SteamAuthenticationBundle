@@ -1,6 +1,6 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\DependencyInjection;
+namespace UKnight\SteamAuthenticationBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 /**
  * @author Knojector <dev@knojector.xyz>
  */
-class KnojectorSteamAuthenticationExtension extends Extension
+class UKnightSteamAuthenticationExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -26,9 +26,9 @@ class KnojectorSteamAuthenticationExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('knojector.steam_authentication.api_key', $config['api_key']);
-        $container->setParameter('knojector.steam_authentication.login_route', $config['login_route']);
-        $container->setParameter('knojector.steam_authentication.login_redirect', $config['login_redirect']);
-        $container->setParameter('knojector.steam_authentication.user_class', $config['user_class']);
+        $container->setParameter('UKnight.steam_authentication.api_key', $config['api_key']);
+        $container->setParameter('UKnight.steam_authentication.login_route', $config['login_route']);
+        $container->setParameter('UKnight.steam_authentication.login_redirect', $config['login_redirect']);
+        $container->setParameter('UKnight.steam_authentication.user_class', $config['user_class']);
     }
 }

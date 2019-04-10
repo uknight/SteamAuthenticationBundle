@@ -1,78 +1,81 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: varg
+ * Date: 8.04.19
+ * Time: 23:08
+ */
 
 namespace UKnight\SteamAuthenticationBundle\User;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Role\Role;
-
 /**
- * @author Knojector <dev@knojector.xyz>
+ * Trait SteamUser
  *
- * Extend it if you don't need FOSUserBundle
+ * Use it ONLY if you need to work with FOSUserBundle alongside with this bundle!
+ *
  */
-abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
+trait SteamUser
 {
     /**
      * @var string
      *
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="bigint", nullable=true)
      */
     protected $steamId;
 
     /**
      * @var int
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $communityVisibilityState;
 
     /**
      * @var int
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $profileState;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $profileName;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $lastLogOff;
 
     /**
      * @var int
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $commentPermission;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $profileUrl;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $avatar;
 
     /**
      * @var int
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $personaState;
 
@@ -96,13 +99,6 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
      * @ORM\Column(type="string", nullable=true)
      */
     protected $countryCode;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(type="json_array")
-     */
-    protected $roles;
 
     /**
      * {@inheritdoc}
@@ -157,7 +153,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
      */
     public function getProfileName(): string
     {
-        return $this->profileName;
+        return (string)$this->profileName;
     }
 
     /**
@@ -195,11 +191,11 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param int $commentPermission
      */
-    public function setCommentPermission(int $permission)
+    public function setCommentPermission(?int $commentPermission): void
     {
-        $this->commentPermission = $permission;
+        $this->commentPermission = $commentPermission;
     }
 
     /**
@@ -223,7 +219,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
      */
     public function getAvatar(): string
     {
-        return $this->avatar;
+        return (string)$this->avatar;
     }
 
     /**
@@ -304,29 +300,29 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
         $this->countryCode = $countryCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getPassword()
-    {
-        return null;
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function getPassword()
+//    {
+//        return null;
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function getSalt()
+//    {
+//        return null;
+//    }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getSalt()
-    {
-        return null;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getUsername()
-    {
-       return $this->steamId;
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function getUsername()
+//    {
+//        return $this->steamId;
+//    }
 
     /**
      * {@inheritdoc}
@@ -335,18 +331,18 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     {
         return;
     }
-    
-    /**
-     * @return array
-     */
-    public function getRoles(): array {
-        $roles = [];
-        foreach ($this->roles as $role) {
-            $roles[] = new Role($role);
-        }
 
-        return $roles;
-    }
+//    /**
+//     * @return array
+//     */
+//    public function getRoles(): array {
+//        $roles = [];
+//        foreach ($this->roles as $role) {
+//            $roles[] = new Role($role);
+//        }
+//
+//        return $roles;
+//    }
 
     /**
      * @param array $userData
@@ -354,12 +350,19 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     public function update(array $userData)
     {
         $this->setCommunityVisibilityState($userData['communityvisibilitystate']);
-        $this->setProfileState($userData['profilestate']);
+        $this->setProfileState(isset($userData['profilestate']));
         $this->setProfileName($userData['personaname']);
+
+        // we use it when we have FOSUserBundle
+        if($this->getUsername() == $this->getProfileName() . '_' . $this->getSteamId())
+        {
+            $this->setUsername($userData['personaname'] . '_' . $userData['steamid']);
+            $this->setEmail($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
+            $this->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
+        }
+
         $this->setLastLogOff($userData['lastlogoff']);
-        $this->setCommentPermission(
-            isset($userData['commentpermission']) ? $userData['commentpermission'] : 0
-        );
+        $this->setCommentPermission(isset($userData['commentpermission']) ? $userData['commentpermission'] : null);
         $this->setProfileUrl($userData['profileurl']);
         $this->setAvatar($userData['avatarfull']);
         $this->setPersonaState($userData['personastate']);
@@ -369,5 +372,9 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
         $this->setCountryCode(
             isset($userData['loccountrycode']) ? $userData['loccountrycode'] : null
         );
+        if(!$this->hasRole('ROLE_USER'))
+        {
+            $this->addRole('ROLE_USER');
+        }
     }
 }

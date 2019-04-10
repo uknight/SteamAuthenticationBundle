@@ -1,6 +1,6 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\Exception;
+namespace UKnight\SteamAuthenticationBundle\Exception;
 
 /**
  * @author Knojector <dev@knojector.xyz>

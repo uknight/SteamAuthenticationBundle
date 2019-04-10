@@ -1,9 +1,9 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\Security\Factory;
+namespace UKnight\SteamAuthenticationBundle\Security\Factory;
 
-use Knojector\SteamAuthenticationBundle\Security\Authentication\Provider\SteamProvider;
-use Knojector\SteamAuthenticationBundle\Security\Firewall\SteamListener;
+use UKnight\SteamAuthenticationBundle\Security\Authentication\Provider\SteamProvider;
+use UKnight\SteamAuthenticationBundle\Security\Firewall\SteamListener;
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ChildDefinition;

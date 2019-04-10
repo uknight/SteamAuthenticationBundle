@@ -1,4 +1,4 @@
-<form method="post" action="https://steamcommunity.com/openid/login">
+<form method="post" action="https://steamcommunity.com/openid/login" class="{% if hidden == 1 %}hidden{% endif %}">
     <input type="hidden" name="openid.ns" value="http://specs.openid.net/auth/2.0">
     <input type="hidden" name="openid.mode" value="checkid_setup">
     <input type="hidden" name="openid.identity" value="http://specs.openid.net/auth/2.0/identifier_select">
@@ -7,11 +7,11 @@
     <input type="hidden" name="openid.realm" value="{{ steam_authentication_route() }}">
     <button type="submit">
         {% if btn == 1 %}
-            <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png" />
+            <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png" alt="{{ 'Login with Steam'|trans }}"/>
         {% else if btn == 2 %}
-            <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png" />
+            <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png" alt="{{ 'Login with Steam'|trans }}"/>
         {% else %}
-            {{ btn }}
+            {{ btn|raw }}
         {% endif %}
     </button>
 </form>

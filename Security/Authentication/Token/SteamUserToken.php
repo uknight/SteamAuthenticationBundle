@@ -1,8 +1,8 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\Security\Authentication\Token;
+namespace UKnight\SteamAuthenticationBundle\Security\Authentication\Token;
 
-use Knojector\SteamAuthenticationBundle\User\AbstractSteamUser;
+use UKnight\SteamAuthenticationBundle\User\AbstractSteamUser;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**

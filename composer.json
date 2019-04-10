@@ -2,15 +2,15 @@
   "name": "uknight/steam-authentication-bundle",
   "license": "MIT",
   "type": "symfony-bundle",
-  "description": "Symfony Bundle to integrate Steam authentication",
+  "description": "Symfony Bundle to integrate Steam with FOSUserBundle authentication, forked from KnojectorSteamAuthentication. Credits to them.",
   "authors": [
     {
-      "name": "Knojector",
-      "email": "dev@knojector.xyz"
+      "name": "UKnight",
+      "email": "flash@u-knight.de"
     }
   ],
   "autoload": {
-    "psr-4": { "Knojector\\SteamAuthenticationBundle\\": "" }
+    "psr-4": { "UKnight\\SteamAuthenticationBundle\\": "" }
   },
   "require": {
     "php": ">=7.1.3",

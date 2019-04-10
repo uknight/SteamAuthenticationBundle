@@ -1,15 +1,15 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle;
+namespace UKnight\SteamAuthenticationBundle;
 
-use Knojector\SteamAuthenticationBundle\Security\Factory\SteamFactory;
+use UKnight\SteamAuthenticationBundle\Security\Factory\SteamFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @author Knojector <dev@knojector.xyz>
  */
-class KnojectorSteamAuthenticationBundle extends Bundle
+class UKnightSteamAuthenticationBundle extends Bundle
 {
     /**
      * {@inheritdoc}

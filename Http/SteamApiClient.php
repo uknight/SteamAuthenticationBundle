@@ -1,8 +1,8 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\Http;
+namespace UKnight\SteamAuthenticationBundle\Http;
 
-use Knojector\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
+use UKnight\SteamAuthenticationBundle\Exception\InvalidApiResponseException;
 use GuzzleHttp\Client;
 
 /**

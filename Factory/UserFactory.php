@@ -1,9 +1,9 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\Factory;
+namespace UKnight\SteamAuthenticationBundle\Factory;
 
-use Knojector\SteamAuthenticationBundle\Exception\InvalidUserClassException;
-use Knojector\SteamAuthenticationBundle\User\SteamUserInterface;
+use UKnight\SteamAuthenticationBundle\Exception\InvalidUserClassException;
+use UKnight\SteamAuthenticationBundle\User\SteamUserInterface;
 
 /**
  * @author Knojector <dev@knojector.xyz>
@@ -27,11 +27,13 @@ class UserFactory
     /**
      * @param array $userData
      *
+     * @param bool $fos Do we use FOSUserBundle here?
+     *
      * @return SteamUserInterface
      *
      * @throws InvalidUserClassException
      */
-    public function getFromSteamApiResponse(array $userData)
+    public function getFromSteamApiResponse(array $userData, bool $fos)
     {
         $user = new $this->userClass;
         if (!$user instanceof SteamUserInterface) {
@@ -40,14 +42,22 @@ class UserFactory
 
         $user->setSteamId($userData['steamid']);
         $user->setCommunityVisibilityState($userData['communityvisibilitystate']);
-        $user->setUsername($userData['personaname'] . '_' . $userData['steamid']);
-        $user->setEmail($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
-        $user->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
-        $user->setSlug($userData['steamid']);
-//        $user->setProfileState($userData['profilestate']);
+        if($fos == true)
+        {
+            $user->setUsername($userData['personaname'] . '_' . $userData['steamid']);
+            $user->setEmail($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
+            $user->setPlainPassword($userData['personaname'] . '@' . $userData['steamid'] . '.fake');
+            $user->setSlug($userData['steamid']);
+        }
+
+        $user->setProfileState(
+            isset($userData['profilestate']) ? $userData['profilestate'] : null
+        );
         $user->setProfileName($userData['personaname']);
         $user->setLastLogOff($userData['lastlogoff']);
-//        $user->setCommentPermission($userData['commentpermission']);
+        $user->setCommentPermission(
+            isset($userData['commentpermission']) ? $userData['commentpermission'] : null
+        );
         $user->setProfileUrl($userData['profileurl']);
         $user->setAvatar($userData['avatarfull']);
         $user->setPersonaState($userData['personastate']);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\DependencyInjection;
+namespace UKnight\SteamAuthenticationBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -16,13 +16,14 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('knojector_steam_authentication');
+        $rootNode = $treeBuilder->root('uknight_steam_authentication');
 
         $rootNode
             ->children()
                 ->scalarNode('api_key')->end()
                 ->scalarNode('login_route')->end()
                 ->scalarNode('login_redirect')->end()
+                ->scalarNode('use_fos')->end()
                 ->scalarNode('user_class')->end()
             ->end()
         ;
