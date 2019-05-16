@@ -332,17 +332,17 @@ trait SteamUser
         return;
     }
 
-//    /**
-//     * @return array
-//     */
-//    public function getRoles(): array {
-//        $roles = [];
-//        foreach ($this->roles as $role) {
-//            $roles[] = new Role($role);
-//        }
-//
-//        return $roles;
-//    }
+   /**
+    * @return array
+    */
+   public function getRoles(): array {
+       $roles = [];
+       foreach ($this->roles as $role) {
+           $roles[] = new Role($role);
+       }
+
+       return $roles;
+   }
 
     /**
      * @param array $userData
