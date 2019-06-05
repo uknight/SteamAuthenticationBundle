@@ -10,6 +10,9 @@ use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Firewall\ListenerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+
 
 /**
  * @author Knojector <dev@knojector.xyz>
@@ -40,6 +43,12 @@ class SteamListener implements ListenerInterface
      * @var TokenStorageInterface
      */
     private $tokenStorage;
+    private $router;
+
+    /**
+     * @var EventDispatcherInterface
+     */
+    private $ed;
 
     /**
      * @param AuthenticationManagerInterface $authenticationManager
@@ -53,7 +62,8 @@ class SteamListener implements ListenerInterface
         RouterInterface $router,
         string $loginRedirect,
         string $loginRoute,
-        TokenStorageInterface $tokenStorage
+        TokenStorageInterface $tokenStorage,
+        EventDispatcherInterface $ed
     )
     {
         $this->authenticationManager = $authenticationManager;
@@ -61,6 +71,7 @@ class SteamListener implements ListenerInterface
         $this->loginRedirect = $loginRedirect;
         $this->loginRoute = $loginRoute;
         $this->tokenStorage = $tokenStorage;
+        $this->ed = $ed;
     }
 
     /**
@@ -83,6 +94,8 @@ class SteamListener implements ListenerInterface
         $authToken = $this->authenticationManager->authenticate($token);
         $this->tokenStorage->setToken($authToken);
 
+        $event = new InteractiveLoginEvent($request, $authToken);
+        $this->ed->dispatch("security.interactive_login", $event);
 
         $event->setResponse(new RedirectResponse(
             $this->router->generate($this->loginRedirect)

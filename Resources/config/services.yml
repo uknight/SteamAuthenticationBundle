@@ -33,6 +33,7 @@ services:
             - '%uknight.steam_authentication.login_redirect%'
             - '%uknight.steam_authentication.login_route%'
             - '@security.token_storage'
+            - '@event_dispatcher'
 
     uknight.steam_authentication.security.user.steam_user_provider:
         class: Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider
