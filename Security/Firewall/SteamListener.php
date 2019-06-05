@@ -93,8 +93,8 @@ class SteamListener implements ListenerInterface
         $authToken = $this->authenticationManager->authenticate($token);
         $this->tokenStorage->setToken($authToken);
 
-        $event = new InteractiveLoginEvent($request, $authToken);
-        $this->ed->dispatch("security.interactive_login", $event);
+        $loginEvent = new InteractiveLoginEvent($request, $authToken);
+        $this->ed->dispatch("security.interactive_login", $loginEvent);
 
         $event->setResponse(new RedirectResponse(
             $this->router->generate($this->loginRedirect)
