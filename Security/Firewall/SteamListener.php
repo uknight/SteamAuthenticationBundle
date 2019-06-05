@@ -43,7 +43,6 @@ class SteamListener implements ListenerInterface
      * @var TokenStorageInterface
      */
     private $tokenStorage;
-    private $router;
 
     /**
      * @var EventDispatcherInterface
