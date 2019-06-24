@@ -3,9 +3,9 @@
 namespace Knojector\SteamAuthenticationBundle\Security\Firewall;
 
 use Knojector\SteamAuthenticationBundle\Security\Authentication\Token\SteamUserToken;
+use Knojector\SteamAuthenticationBundle\Security\Authentication\Validator\RequestValidatorInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -27,11 +27,6 @@ class SteamListener implements ListenerInterface
     private $loginRedirect;
 
     /**
-     * @var string
-     */
-    private $loginRoute;
-
-    /**
      * @var RouterInterface
      */
     private $router;
@@ -41,26 +36,28 @@ class SteamListener implements ListenerInterface
      */
     private $tokenStorage;
 
+    /** @var RequestValidatorInterface */
+    private $requestValidator;
+
     /**
      * @param AuthenticationManagerInterface $authenticationManager
-     * @param RouterInterface                $router
-     * @param string                         $loginRedirect
-     * @param string                         $loginRoute
-     * @param TokenStorageInterface          $tokenStorage
+     * @param RouterInterface $router
+     * @param string $loginRedirect
+     * @param TokenStorageInterface $tokenStorage
      */
     public function __construct(
         AuthenticationManagerInterface $authenticationManager,
         RouterInterface $router,
         string $loginRedirect,
-        string $loginRoute,
-        TokenStorageInterface $tokenStorage
+        TokenStorageInterface $tokenStorage,
+        RequestValidatorInterface $requestValidator
     )
     {
         $this->authenticationManager = $authenticationManager;
         $this->router = $router;
         $this->loginRedirect = $loginRedirect;
-        $this->loginRoute = $loginRoute;
         $this->tokenStorage = $tokenStorage;
+        $this->requestValidator = $requestValidator;
     }
 
     /**
@@ -69,9 +66,10 @@ class SteamListener implements ListenerInterface
     public function handle(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-        $returnTo = $request->query->get('openid_return_to');
 
-        if ($returnTo !== $this->router->generate($this->loginRoute, [], UrlGeneratorInterface::ABSOLUTE_URL)) {
+        $this->requestValidator->setRequest($request);
+
+        if (!$this->requestValidator->validate()) {
             return;
         }
 
@@ -88,5 +86,4 @@ class SteamListener implements ListenerInterface
             $this->router->generate($this->loginRedirect)
         ));
     }
-
 }

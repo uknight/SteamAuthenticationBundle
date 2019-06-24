@@ -30,5 +30,12 @@ class KnojectorSteamAuthenticationExtension extends Extension
         $container->setParameter('knojector.steam_authentication.login_route', $config['login_route']);
         $container->setParameter('knojector.steam_authentication.login_redirect', $config['login_redirect']);
         $container->setParameter('knojector.steam_authentication.user_class', $config['user_class']);
+
+        if (isset($config['request_validator_class'])) {
+            $container->setParameter(
+                'knojector.steam_authentication.request_validator_class',
+                $config['request_validator_class']
+            );
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Knojector\SteamAuthenticationBundle\DependencyInjection;
 
+use Knojector\SteamAuthenticationBundle\Security\Authentication\Validator\RequestValidator;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -24,6 +25,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('login_route')->end()
                 ->scalarNode('login_redirect')->end()
                 ->scalarNode('user_class')->end()
+                ->scalarNode('request_validator_class')->defaultValue(RequestValidator::class)->end()
             ->end()
         ;
 
