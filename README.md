@@ -17,6 +17,8 @@ In your `.env`  file a new entry for your Steam API key was generated. You can o
 
 **user_class** Classname of your User Entity
 
+**request_validator_class** Classname of RequestValidatorInterface class. If it isn't set then `Knojector\SteamAuthenticationBundle\Security\Authentication\Validator\RequestValidator` will be used.
+
 ----------
 Make sure your User Entity extends from the `Knojector\SteamAuthenticationBundle\User\AbstractSteamUser` class
 ```php

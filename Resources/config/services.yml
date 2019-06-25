@@ -30,8 +30,8 @@ services:
             - '@security.authentication.manager'
             - '@router'
             - '%knojector.steam_authentication.login_redirect%'
-            - '%knojector.steam_authentication.login_route%'
             - '@security.token_storage'
+            - '@knojector.steam_authentication.request_validator'
 
     knojector.steam_authentication.security.user.steam_user_provider:
         class: Knojector\SteamAuthenticationBundle\Security\User\SteamUserProvider
@@ -48,3 +48,13 @@ services:
             - '%knojector.steam_authentication.login_route%'
         tags:
             - { name: twig.extension }
+
+    knojector.steam_authentication.openid_validator:
+        class: Knojector\SteamAuthenticationBundle\OpenId\PayloadValidator
+
+    knojector.steam_authentication.request_validator:
+        class: '%knojector.steam_authentication.request_validator_class%'
+        arguments:
+            $router: '@router'
+            $loginRoute: '%knojector.steam_authentication.login_route%'
+            $payloadValidator: '@knojector.steam_authentication.openid_validator'
