@@ -103,7 +103,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function getSteamId(): int
+    public function getSteamId()
     {
         return $this->steamId;
     }
