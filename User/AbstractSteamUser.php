@@ -105,9 +105,9 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     protected $roles;
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public function getSteamId(): int
+    public function getSteamId(): string
     {
         return $this->steamId;
     }
@@ -121,7 +121,7 @@ abstract class AbstractSteamUser implements SteamUserInterface, UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return int
      */
     public function getCommunityVisibilityState(): int
     {
