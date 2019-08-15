@@ -12,7 +12,7 @@ interface SteamUserInterface
     /**
      * @return int
      */
-    public function getSteamId(): int;
+    public function getSteamId(): ?int;
 
     /**
      * @param int $steamId
