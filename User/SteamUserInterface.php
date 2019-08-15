@@ -70,9 +70,9 @@ interface SteamUserInterface
     public function setCommentPermission(?int $permission);
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProfileUrl(): string;
+    public function getProfileUrl(): ?string;
 
     /**
      * @param string $url
