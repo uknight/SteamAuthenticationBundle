@@ -59,7 +59,7 @@ trait SteamUser
     protected $commentPermission;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -201,7 +201,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function getProfileUrl(): string
+    public function getProfileUrl(): ?string
     {
         return $this->profileUrl;
     }
