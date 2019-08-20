@@ -4,11 +4,13 @@ namespace Uknight\SteamAuthenticationBundle\Security\User;
 
 use Uknight\SteamAuthenticationBundle\User\SteamUserInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Uknight\SteamAuthenticationBundle\Factory\UserFactory;
 use Uknight\SteamAuthenticationBundle\Http\SteamApiClient;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Uknight\SteamAuthenticationBundle\Event\RegisterEvent;
 
 /**
  * @author Knojector <dev@knojector.xyz>
@@ -36,6 +38,11 @@ class SteamUserProvider implements UserProviderInterface
     private $userFactory;
 
     /**
+     * @var EventDispatcherInterface
+     */
+    private $dispatcher;
+
+    /**
      * @param EntityManagerInterface $entityManager
      * @param SteamApiClient         $steamApiClient
      * @param string                 $userClass
@@ -45,13 +52,15 @@ class SteamUserProvider implements UserProviderInterface
         EntityManagerInterface $entityManager,
         SteamApiClient $steamApiClient,
         string $userClass,
-        UserFactory $userFactory
+        UserFactory $userFactory,
+        EventDispatcherInterface $dispatcher
     )
     {
         $this->entityManager = $entityManager;
         $this->api = $steamApiClient;
         $this->userClass = $userClass;
         $this->userFactory = $userFactory;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -59,14 +68,18 @@ class SteamUserProvider implements UserProviderInterface
      */
     public function loadUserByUsername($username, $fos = true)
     {
-        //ToDo: handle $fos parameter properly
+        // ToDo: handle $fos parameter properly
 
         $user = $this->entityManager->getRepository($this->userClass)->findOneBy(['steamId' => $username]);
         $userData = $this->api->loadProfile($username);
         if (null === $user) {
+            // * here we register user... and nee to do something with it
             $user = $this->userFactory->getFromSteamApiResponse($userData, $fos);
 
             $this->entityManager->persist($user);
+
+            $event = new RegisterEvent($user);
+            $this->dispatcher->dispatch($event, OrderPlacedEvent::NAME);
         } else {
             $user->update($userData);
         }

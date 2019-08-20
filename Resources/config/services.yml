@@ -42,6 +42,7 @@ services:
             - '@uknight.steam_authentication.http.steam_api_client'
             - '%uknight.steam_authentication.user_class%'
             - '@uknight.steam_authentication.factory.user_factory'
+            - '@event_dispatcher'
 
     uknight.steam_authentication.twig.steam_extension:
         class: Uknight\SteamAuthenticationBundle\Twig\SteamExtension
