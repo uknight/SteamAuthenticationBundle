@@ -1,7 +1,6 @@
 <?php
 namespace Uknight\SteamAuthenticationBundle\Event;
 
-use Acme\Store\Order;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
@@ -14,7 +13,7 @@ class RegisterEvent extends Event
 
     protected $user;
 
-    public function __construct(mixed $user)
+    public function __construct($user)
     {
         $this->user = $user;
     }

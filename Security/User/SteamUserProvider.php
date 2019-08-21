@@ -79,7 +79,7 @@ class SteamUserProvider implements UserProviderInterface
             $this->entityManager->persist($user);
 
             $event = new RegisterEvent($user);
-            $this->dispatcher->dispatch($event, OrderPlacedEvent::NAME);
+            $this->dispatcher->dispatch($event, RegisterEvent::NAME);
         } else {
             $user->update($userData);
         }
