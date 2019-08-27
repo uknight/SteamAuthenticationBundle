@@ -103,7 +103,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function getSteamId(): ?int
+    public function getSteamId(): ?string
     {
         return $this->steamId;
     }
@@ -111,7 +111,7 @@ trait SteamUser
     /**
      * {@inheritdoc}
      */
-    public function setSteamId(int $steamId)
+    public function setSteamId(string $steamId)
     {
         $this->steamId = $steamId;
     }
