@@ -10,9 +10,9 @@ namespace Uknight\SteamAuthenticationBundle\User;
 interface SteamUserInterface
 {
     /**
-     * @return int
+     * @return string
      */
-    public function getSteamId(): ?int;
+    public function getSteamId(): ?string;
 
     /**
      * @param int $steamId
