@@ -98,7 +98,7 @@ security:
 
 ----------
 
-To display the "Login via Steam" button simply include this snippet in your template
+To display the "Login via Steam" button just include this snippet in your template
 ```twig
 {% include '@KnojectorSteamAuthentication/login.html.twig' with { 'btn': 1 } %}
 ```
