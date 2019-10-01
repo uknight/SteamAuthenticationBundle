@@ -1,6 +1,6 @@
 
 # SteamAuthenticationBundle
-A Symfony4 Bundle that provides authentication via Steam for your application.
+A Symfony Bundle that provides authentication via Steam for your application.
 
 ## Installation & Configuration
 
