@@ -75,7 +75,7 @@ class User extends AbstractSteamUser
 
 ----------
 
-Finally you just have to configure your firewall. A working example might look like this
+Finally you just have to configure your firewall. A working example looks like this
 ```yaml
 security:
     providers:
