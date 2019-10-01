@@ -4,7 +4,7 @@ A Symfony4 Bundle that provides authentication via Steam for your application.
 
 ## Installation & Configuration
 
-Simply require the bundle via Composer and use the given flex recipe during the install process.
+Just require the bundle via Composer and use the given flex recipe during the install process.
 
 `composer require knojector/steam-authentication-bundle`
 
