@@ -1,6 +1,6 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\OpenId;
+namespace Uknight\SteamAuthenticationBundle\OpenId;
 
 use GuzzleHttp\Client;
 
