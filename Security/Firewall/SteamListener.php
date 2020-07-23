@@ -57,25 +57,19 @@ class SteamListener implements ListenerInterface
         AuthenticationManagerInterface $authenticationManager,
         RouterInterface $router,
         string $loginRedirect,
-<<<<<<< HEAD
         string $loginRoute,
         TokenStorageInterface $tokenStorage,
         EventDispatcherInterface $ed
-=======
-        TokenStorageInterface $tokenStorage,
+        // TokenStorageInterface $tokenStorage,
         RequestValidatorInterface $requestValidator
->>>>>>> upstream/master
     )
     {
         $this->authenticationManager = $authenticationManager;
         $this->router = $router;
         $this->loginRedirect = $loginRedirect;
         $this->tokenStorage = $tokenStorage;
-<<<<<<< HEAD
         $this->ed = $ed;
-=======
         $this->requestValidator = $requestValidator;
->>>>>>> upstream/master
     }
 
     /**
