@@ -1,6 +1,6 @@
 <?php
 
-namespace Knojector\SteamAuthenticationBundle\Security\Authentication\Validator;
+namespace Uknight\SteamAuthenticationBundle\Security\Authentication\Validator;
 
 use Symfony\Component\HttpFoundation\Request;
 
