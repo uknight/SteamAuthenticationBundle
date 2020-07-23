@@ -59,7 +59,7 @@ class SteamListener implements ListenerInterface
         string $loginRedirect,
         string $loginRoute,
         TokenStorageInterface $tokenStorage,
-        EventDispatcherInterface $ed
+        EventDispatcherInterface $ed,
         // TokenStorageInterface $tokenStorage,
         RequestValidatorInterface $requestValidator
     )
