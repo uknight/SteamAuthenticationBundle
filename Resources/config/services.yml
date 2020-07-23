@@ -34,6 +34,9 @@ services:
             - '%uknight.steam_authentication.login_route%'
             - '@security.token_storage'
             - '@event_dispatcher'
+            # - '%knojector.steam_authentication.login_redirect%'
+            # - '@security.token_storage'
+            - '@knojector.steam_authentication.request_validator'
 
     uknight.steam_authentication.security.user.steam_user_provider:
         class: Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider
@@ -51,3 +54,13 @@ services:
             - '%uknight.steam_authentication.login_route%'
         tags:
             - { name: twig.extension }
+
+    uknight.steam_authentication.openid_validator:
+        class: Uknight\SteamAuthenticationBundle\OpenId\PayloadValidator
+
+    uknight.steam_authentication.request_validator:
+        class: '%uknight.steam_authentication.request_validator_class%'
+        arguments:
+            $router: '@router'
+            $loginRoute: '%uknight.steam_authentication.login_route%'
+            $payloadValidator: '@uknight.steam_authentication.openid_validator'

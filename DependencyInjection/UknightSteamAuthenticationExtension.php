@@ -31,5 +31,12 @@ class UknightSteamAuthenticationExtension extends Extension
         $container->setParameter('uknight.steam_authentication.login_redirect', $config['login_redirect']);
         $container->setParameter('uknight.steam_authentication.user_class', $config['user_class']);
         $container->setParameter('uknight.steam_authentication.use_fos', $config['use_fos']);
+
+        if (isset($config['request_validator_class'])) {
+            $container->setParameter(
+                'uknight.steam_authentication.request_validator_class',
+                $config['request_validator_class']
+            );
+        }
     }
 }

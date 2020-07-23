@@ -2,6 +2,7 @@
 
 namespace Uknight\SteamAuthenticationBundle\DependencyInjection;
 
+use Uknight\SteamAuthenticationBundle\Security\Authentication\Validator\RequestValidator;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -25,6 +26,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('login_redirect')->end()
                 ->scalarNode('use_fos')->end()
                 ->scalarNode('user_class')->end()
+                ->scalarNode('request_validator_class')->defaultValue(RequestValidator::class)->end()
             ->end()
         ;
 

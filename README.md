@@ -6,7 +6,7 @@ If you don't use FOSUserBundle on your project, you would better use original Kn
 
 ## Installation & Configuration
 
-Simply require the bundle via Composer and use the given flex recipe during the install process.
+Just require the bundle via Composer and use the given flex recipe during the install process.
 
 `composer require uknight/steam-authentication-bundle`
 
@@ -32,6 +32,7 @@ uknight_steam_authentication:
     user_class: 'App\Entity\Client\User'
     use_fos: true
 ```
+**request_validator_class** Classname of RequestValidatorInterface class. If it isn't set then `Uknight\SteamAuthenticationBundle\Security\Authentication\Validator\RequestValidator` will be used.
 
 ----------
 If you don't use FOSUserBundle, Make sure your User Entity extends from the `Uknight\SteamAuthenticationBundle\User\AbstractSteamUser` class
@@ -118,7 +119,7 @@ class User extends \FOS\UserBundle\Model\User implements SteamUserInterface
 
 ----------
 
-Finally you just have to configure your firewall. A working example might look like this
+Finally you just have to configure your firewall. A working example might looks like this
 ```yaml
 security:
     providers:
@@ -170,7 +171,7 @@ security:
 
 ----------
 
-To display the "Login via Steam" button simply include this snippet in your template
+To display the "Login via Steam" button just include this snippet in your template
 ```twig
 {% include '@UknightSteamAuthentication/login.html.twig' with { 'btn': 1 } %}
 ```
