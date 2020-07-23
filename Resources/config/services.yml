@@ -36,7 +36,7 @@ services:
             - '@event_dispatcher'
             # - '%knojector.steam_authentication.login_redirect%'
             # - '@security.token_storage'
-            - '@knojector.steam_authentication.request_validator'
+            - '@uknight.steam_authentication.request_validator'
 
     uknight.steam_authentication.security.user.steam_user_provider:
         class: Uknight\SteamAuthenticationBundle\Security\User\SteamUserProvider
